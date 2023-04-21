@@ -88,9 +88,9 @@ $APPLICATION->SetPageProperty("description", "Официальный сайт к
 $APPLICATION->SetPageProperty("title", "Медицинский центр №1 в Курске: официальный сайт клиники");
 $APPLICATION->SetTitle("Медицинский центр №1");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"Banners",
-	Array(
+	"bitrix:news.list", //Компонент news.list. Пространство имен bitrix.
+	"Banners", // Шаблон компонента Banners. 
+	Array( // Параметры компонента
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
