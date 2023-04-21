@@ -79,7 +79,33 @@ Asset::getInstance()->addString ('<link href="https://fonts.googleapis.com/css2?
 Чтобы переместить файлы javscript в конец сайта нужно включить опцию Переместить весь Javascript в конец страницы в разделе 
 Настройки>Настройки продукта>Настройки модулей>Главный модуль. Скриптам, которые должны остаться на месте, нужно прописать data-skip-moving="true".
 
-<!-- ================================================================================================================================= -->
+<!-- ======================================================== ПОИСК В КОМПОНЕНТЕ ========================================================================= -->
+
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("keywords", "Медицинский центр №1");
+$APPLICATION->SetPageProperty("description", "Официальный сайт клиники 'Медицинский центр №1' в Курске: все виды медицинских услуг для взрослых и детей, эффективная диагностика и лечение заболеваний, услуги косметологии, профосмотры и справки");
+$APPLICATION->SetPageProperty("title", "Медицинский центр №1 в Курске: официальный сайт клиники");
+$APPLICATION->SetTitle("Медицинский центр №1");
+?><?$APPLICATION->IncludeComponent(
+	"bitrix:news.list",
+	"Banners",
+	Array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "N",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "N",
+		"CACHE_TIME" => "36000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "Banners",
+))?>
+<!-- ===================================================================================================================================================== -->
 
 1. Функция подключения компонента
 <? $APPLICATION->IncludeComponent(
