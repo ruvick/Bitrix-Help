@@ -51,11 +51,25 @@ Asset::getInstance()->addString ('<link href="https://fonts.googleapis.com/css2?
 
 <!-- ======================================================== ПОДКЛЮЧЕНИЯ, КАРТИНКИ ========================================================================= -->
 
-Вывод в теге img 
+Выводим в теге img 
 <picture>
 	<source srcset="<?=SITE_TEMPLATE_PATH?>/img/team/04.webp" type="image/webp"><img src="<?=SITE_TEMPLATE_PATH?>/img/team/04.jpg?_v=1633466607061" alt="">
 </picture>
+<!-- ----------------------------------------------------------->
 
+Вывод картинок в превью, для мобилки и пк из Админки
+<? if (!empty($link)) {?>
+	<a href="<?=$link?>" class="banner-link">
+<?}?>
+		<picture class="banner-link__picture"> 
+			<source srcset="<?=$item["PREVIEW_PICTURE"]["SRC"]?>" media="(max-width: 515px)" />
+				<img <?if($counter_elem == 0){?>src<?}else{?>data-src<?}?>="<?=$item["DETAIL_PICTURE"]["SRC"]?>" <?if($counter_elem != 0){?> src="<?=$item["DETAIL_PICTURE"]["SRC"]?>" <?}?> alt="<?=$item["DETAIL_PICTURE"]["ALT"]?>" class="baner-slider__image <?if($counter_elem == 0){?><?}else{?>lazy<?}?>">
+		</picture>
+<? if (!empty($link)) {?>
+	</a>
+<?}?>
+Вывод превью - ["PREVIEW_PICTURE"]["SRC"]
+Вывод пк - ["DETAIL_PICTURE"]["SRC"]
 <!-- ======================================================== ПОДКЛЮЧЕНИЯ, ADMIN-PANEL ========================================================================= -->
 
 Для подключения админ-панели в теге body coздаем
